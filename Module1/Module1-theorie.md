@@ -59,18 +59,52 @@
 
 ## Sample Testing
 
-### Population
-
 ### Sample and Population
+
+- Sample: Verzameling van elementen uit een populatie waar metingen op worden uitgevoerd. De sample is makkelijker te onderzoeken dan de volledige populatie
+
+- Population: Verzameling van alle elementen waaruit een sample wordt genomen
+
+**NOTE**: Onder bepaalde omstandigheden kan een sample de populatie volledig representeren
 
 ### Sampling Method
 
-### How to pick elements for a sample?
+- **Random Sampling**
+  - Alle elementen in de populatie hebben een gelijke kans om geselecteerd te worden
+- **Non-random Sampling**
+
+  - Elementen in de populatie hebben een ongelijke kans om geselecteerd te worden. Niet random geselecteerd. bv: convenience sampling
 
 ### Stratified to variables
 
+- **Stratified Sampling**
+  - De populatie wordt verdeeld in subpopulaties (strata)
+  - Een random sample wordt genomen uit elke subpopulatie
+  - De samples van elke subpopulatie worden samengevoegd tot een grote sample
+
 ### Possible Errors
+
+- Meetingen in een sample zullen verschillen van de waardes in de populatie -> **ERRORS**
+
+- Accidenteel <-> Systematisch
+- Sampling Errors <-> Non-sampling Errors
 
 ### Sampling Errors
 
+- **Accidental Sampling Errors**
+  - Puur toeval
+  - bv: een meetinstrument dat defect is
+- **Systematic Sampling Errors**
+  - Voorspelbare fouten
+  - bv: een meetinstrument dat niet goed is afgesteld
+  - bv : online enquête, niet representatief mensen zonder internet
+  - bv: straat enquête, niet representatief voor mensen die niet op straat komen
+
 ### Non-sampling Errors
+
+- **Accidental non-sampling Errors**
+  - Incorrecte invoer van data
+- **Systematic non-sampling Errors**
+  - Slechte of niet gecalibreerde meetinstrumenten
+  - Waarde kan beinvloed worden door het feit dat je het meet
+  - Respondenten kunnen liegen
