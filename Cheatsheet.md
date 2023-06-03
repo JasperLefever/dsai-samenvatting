@@ -6,13 +6,18 @@ import scipy.stats as stats                         # Statistical tests
 import pandas as pd                                 # Data Frame
 from pandas.api.types import CategoricalDtype
 
+import random
+import math
+
 import matplotlib.pyplot as plt                     # Basic visualisation
 from statsmodels.graphics.mosaicplot import mosaic  # Mosaic diagram
 import seaborn as sns                                # Advanced data visualisation
-from sklearn.linear_model import LinearRegression   
+from sklearn.linear_model import LinearRegression
+import altair as alt                                # Alternative visualisation system
 ```
 
 # H1 - Samples
+
 ```py
 # Data inlezen (kijken welke sep dat het is, meestal ; of ,) -> default is ,
 data = pd.read_csv("data.csv", sep=";")
@@ -53,6 +58,7 @@ data.set_index("kolomnaam", inplace=True) # zet de kolom als index
 ```
 
 ## Kwalitatieve variabelen
+
 ```py
 # Kwalitatieve variabelen moeten omgezet worden naar een category
 data["kolomnaam"] = data["kolomnaam"].astype("category")
@@ -69,6 +75,7 @@ data["kolomnaam"] = data["kolomnaam"].astype(rating_type)
 ```
 
 ## Selecteren van data
+
 ```py
 # Selecteren van kolommen
 data["kolomnaam"] # geeft de kolom terug
@@ -89,6 +96,7 @@ data[(data["kolomnaam1"] == "waarde1") & (data["kolomnaam2"] == "waarde2")][["ko
 ```
 
 ## Droppen van data
+
 ```py
 # Droppen van kolommen
 data.drop("kolomnaam", axis="columns", inplace=True) # axis=1 -> kolom, axis=0 -> rij
@@ -104,6 +112,7 @@ data["kolomnaam"].fillna("waarde", inplace=True)
 ```
 
 ## Creëren van nieuwe kolommen
+
 ```py
 # Creëren van nieuwe kolommen
 data["nieuwecol"] = #iets van data of een berekening
@@ -125,11 +134,12 @@ data["nieuwecol"] = data["kolomnaam"].map(functie)
 
 ```
 
------
+---
 
 # H2 - Analyse van 1 variabele
 
 # Kwalitatieve variabelen
+
 ```py
 # barchart
 sns.catplot(x="kolomnaam", kind="count", data=data) # count -> telt het aantal waardes per categorie
@@ -143,6 +153,7 @@ data.describe() # geeft een overzicht van de data -> count, mean, std, min, max,
 ```
 
 # Kwantitatieve variabelen
+
 ```py
 # histogram
 
@@ -181,6 +192,7 @@ data.describe()
 ```
 
 ## Formule voor de standaard deviatie
+
 ```py
 # BIJ SAMPLE GEBRUIK JE N - 1
 # BIJ POPULATIE GEBRUIK JE N
@@ -200,52 +212,7 @@ print(f"Standard deviation population: {np.std(a)}")
 print(f"Standard deviation sample    : {np.std(a, ddof=1)}")
 ```
 
-
-
-
-H3
-- z-test
-    - right-tailed
-    - left-tailed
-    - two-tailed
-- t-test
-    - right-tailed
-    - left-tailed
-    - two-tailed
-
-H4 -> 2 kwalitatieve variabelen
-- chi-quadraat test voor onafhankelijkheid
-- goodness of fit test -> controleren of sample representatief is voor de populatie
-- standardised residuals -> kijken of uw sample overrepresentatief is voor een bepaalde groep of niet
-
-h5 -> 1 kalitatieve variabele en 1 kwantitatieve variabele
-- two sample t-test
-    - vergelijken van het gemiddelde van 2 groepen (niet perse even groot)
-    - gemiddelde van 2 verschillende groepen
-- paired samples
-    - vergelijken van dingen op dezelfde groep bv
-    - Voorbeelden 
-    ```
-        Before and after measurements: Paired samples are often used when you want to compare the measurements of the same variable before and after a treatment or intervention. For example, you might measure the blood pressure of individuals before and after they undergo a specific treatment to see if there is a significant change.
-
-        Matched pairs: Paired samples analysis is useful when you have a natural pairing or matching between the observations in the two data sets. For instance, in a study comparing the effectiveness of two different drugs, you might pair each participant with another participant who has similar characteristics, such as age, gender, or disease severity. Then, you would measure the outcomes for each pair under the different drug conditions.
-
-        Repeated measures: Paired samples can be used when you have multiple measurements taken on the same subject over time or under different conditions. This could include measuring variables like reaction time, performance scores, or pain levels before and after different treatments within the same individuals.
-    ```
-
-h6 -> 2 kwantitatieve variabelen
-- regressie
-- covariantie + R + R^2
-
-H7 -> time series
-- moving averages
-    - simple moving average
-    - weighted moving average
-    - exponential moving average
-- exponential smoothing
-    - single exponential smoothing -> exponential smoothing
-    - double exponential smoothing -> Holt's method
-    - triple exponential smoothing -> Holt-Winters method
+# H3
 
 ```mermaid
 graph LR
@@ -257,3 +224,93 @@ B -- Population Distribution Known and Normally Distributed --> C
 C -- Variances Equal and Known --> D[z-test]
 C -- Variances Unequal or Unknown --> B
 ```
+
+Requirements z-test:
+
+- Random sample
+- Sample groot genoeg (n >= 30)
+  - als normaal verdeeld is is sample size niet relevant
+- normaal verdeeld
+- populatie standaard deviatie is gekend
+
+indien 1 van deze niet voldaan is gebruik je de t-test en deze normaal verdeeld is
+
+## Z-test
+
+### right-tailed
+
+```py
+
+```
+
+### left-tailed
+
+```py
+
+```
+
+### two-tailed
+
+```py
+
+```
+
+## t-test
+
+### right-tailed
+
+```py
+
+```
+
+### left-tailed
+
+```py
+
+```
+
+### two-tailed
+
+```py
+
+```
+
+H4 -> 2 kwalitatieve variabelen
+
+- chi-quadraat test voor onafhankelijkheid
+- goodness of fit test -> controleren of sample representatief is voor de populatie
+- standardised residuals -> kijken of uw sample overrepresentatief is voor een bepaalde groep of niet
+
+h5 -> 1 kalitatieve variabele en 1 kwantitatieve variabele
+
+- two sample t-test
+  - vergelijken van het gemiddelde van 2 groepen (niet perse even groot)
+  - gemiddelde van 2 verschillende groepen
+- paired samples
+
+  - vergelijken van dingen op dezelfde groep bv
+  - Voorbeelden
+
+  ```
+      Before and after measurements: Paired samples are often used when you want to compare the measurements of the same variable before and after a treatment or intervention. For example, you might measure the blood pressure of individuals before and after they undergo a specific treatment to see if there is a significant change.
+
+      Matched pairs: Paired samples analysis is useful when you have a natural pairing or matching between the observations in the two data sets. For instance, in a study comparing the effectiveness of two different drugs, you might pair each participant with another participant who has similar characteristics, such as age, gender, or disease severity. Then, you would measure the outcomes for each pair under the different drug conditions.
+
+      Repeated measures: Paired samples can be used when you have multiple measurements taken on the same subject over time or under different conditions. This could include measuring variables like reaction time, performance scores, or pain levels before and after different treatments within the same individuals.
+  ```
+
+h6 -> 2 kwantitatieve variabelen
+
+- regressie
+- covariantie + R + R^2
+
+H7 -> time series
+
+- moving averages
+  - simple moving average
+  - weighted moving average
+  - exponential moving average
+- exponential smoothing
+  - single exponential smoothing -> exponential smoothing
+  - double exponential smoothing -> Holt's method
+  - triple exponential smoothing -> Holt-Winters method
