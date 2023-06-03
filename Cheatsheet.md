@@ -216,7 +216,67 @@ print(f"Standard deviation sample    : {np.std(a, ddof=1)}")
 
 ## Central Limit Theorem
 
-### Plotting density function of a normal distribution
+### The normal distribution
+
+#### Plotting density function of a normal distribution
+
+```py
+# STANDAARD NORMAL DISTRIBUTIE -> mean = 0, std = 1
+# Take 100 values for the X-axis, between -4 and 4, evenly spaced
+x = np.linspace(-4, +4, num=101)
+y = stats.norm.pdf(x, 0, 1)
+# Plot the probability density function (pdf) for these X-values
+plt.plot(x, y)
+
+# voor een normale distributie met mean = 5 en std = 1.5 -> de vorm van de grafiek is identiek gewoon op andere schaal
+m = 5    # Gemiddelde
+s = 1.5  # Standaardafwijking
+x = np.linspace(m - 4 * s, m + 4 * s, num=201)
+plt.plot(x, stats.norm.pdf(x, loc=m, scale=s))
+
+```
+
+#### Plotting histogram of a sample with theoretical probability density
+
+```py
+# Histogram of the sample
+plt.hist(sample, bins=20, density=True, label="Histogram of the sample")
+# of
+sns.distplot(sample, kde=True, label="Histogram of the sample")
+
+```
+
+#### Probability distribution in the normal distribution
+
+**Student $t$-distribution in Python**  
+Import scipy.stats  
+For a $t$-distribution with df degrees of freedom: (df = degrees of freedom)
+
+| **Function**           | **Purpose**                                                 |
+| ---------------------- | ----------------------------------------------------------- |
+| stats.t.pdf(x, df=d)   | Probability density for $x$                                 |
+| stats.t.cdf(x, df=d)   | Left-tail probability 𝑃(𝑋 < x)                              |
+| stats.t.sf(x, df=d)    | Right-tail probability 𝑃(𝑋 > x)                             |
+| stats.t.isf(1-p, df=d) | p% of observations are expected to be lower than this value |
+
+**Normal distribution in Python**
+**Python functions**
+
+Import scipy.stats  
+For a normal distribution with mean m and standard deviation s:
+
+| **Function**                        | **Purpose**                                             |
+| ----------------------------------- | ------------------------------------------------------- |
+| stats.norm.pdf(x, loc=m, scale=s)   | Probability density at $x$                              |
+| stats.norm.cdf(x, loc=m, scale=s)   | Left-tail probability 𝑃(𝑋 < x)                          |
+| stats.norm.sf(x, loc=m, scale=s)    | Right-tail probability 𝑃(𝑋 > x)                         |
+| stats.norm.isf(1-p, loc=m, scale=s) | p% of observations are expected to be lower than result |
+
+#### More examples of probability calculations
+
+### confidence intervals
+
+### Confidence intervals for small samples
 
 ```py
 
