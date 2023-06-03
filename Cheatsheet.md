@@ -214,7 +214,55 @@ print(f"Standard deviation sample    : {np.std(a, ddof=1)}")
 
 # H3
 
+Discrete random variable -> een variabele die een beperkt aantal waardes kan aannemen
+Continuous random variable -> een variabele die een oneindig aantal waardes kan aannemen
+
+- Kans type 1 fout = alpha
+
 ## Central Limit Theorem
+
+- De som van een groot aantal onafhankelijke random variabelen is ongeveer normaal verdeeld
+- Hoe groter de steekproef, hoe beter de benadering
+
+- Hier is de sigma ALTIJD bij sample = **standaardafwijking / sqrt(n)**
+
+- confidence interval -large sample -> een interval waarin de parameter met een bepaalde kans ligt
+
+```py
+# Step 1.
+m = 324.6      # Sample mean
+s = 2.5      # Population standard deviation
+n = 45      # Sample size
+alpha = .05  # 1 - alpha is the confidence level
+
+# Step 2.
+z = stats.norm.isf(alpha/2)
+print("z-score: %.5f" % z)
+
+# Step 3.
+lo = m - z * s / np.sqrt(n)
+hi = m + z * s / np.sqrt(n)
+print("Confidence interval: [%.4f, %.4f]" % (lo, hi))
+```
+
+- confidence interval -small sample -> students t test
+
+```py
+# Step 1.
+m = 5.2      # Sample mean
+s = 1.5      # Sample (!) standard deviation
+n = 15       # Sample size
+alpha = .05  # 1 - alpha is the confidence level
+
+# Stap 2.
+t = stats.t.isf(alpha/2, df = n - 1)
+print("t-score: %.5f" % t)
+
+# Stap 3.
+lo = m - t * s / np.sqrt(n)
+hi = m + t * s / np.sqrt(n)
+print("Confidence interval: [%.4f, %.4f]" % (lo, hi))
+```
 
 ### The normal distribution
 
@@ -507,7 +555,7 @@ dplot.fill_between(acc_x, 0, acc_y, color='lightblue')
 # Properties of the sample:
 n = 50      # sample size
 sm = 20.2  # sample mean
-s = 0.4    # population standard deviation (assumed to be known)
+s = 0.4    # sample standard deviation (assumed to be known)
 a = 0.05    # significance level (chosen by the researcher)
 m0 = 20.0    # hypothetical population mean (H0)
 
@@ -569,7 +617,7 @@ else:
 # Properties of the sample:
 n = 50      # sample size
 sm = 19.94  # sample mean
-s = 0.4    # population standard deviation (assumed to be known)
+s = 0.4    # sample standard deviation (assumed to be known)
 a = 0.05    # significance level (chosen by the researcher)
 m0 = 20.0    # hypothetical population mean (H0)
 
@@ -632,7 +680,7 @@ else:
 # Properties of the sample:
 n = 50      # sample size
 sm = 19.94  # sample mean
-s = 0.4    # population standard deviation (assumed to be known)
+s = 0.4    # sample standard deviation (assumed to be known)
 a = 0.05    # significance level (chosen by the researcher)
 m0 = 20.0    # hypothetical population mean (H0)
 
