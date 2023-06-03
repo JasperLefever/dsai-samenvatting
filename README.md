@@ -6,4 +6,4 @@
 
 ### [Module 2. Univariate statistics](Module2/Module2-theorie.md)
 
-### [Module 3. The central limit theorem, hypothesis testing](Module3/Module3-theorie.md)
+### [Cheatsheet](./Cheatsheet.md)
