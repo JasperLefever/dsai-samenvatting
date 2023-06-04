@@ -994,13 +994,16 @@ print(f"R² = {cor ** 2}")
 
 ---
 
-H7 -> time series
+# [H7 -> time series](./Pythat0n/H7.md)
 
 - moving averages
-- simple moving average
-- weighted moving average
-- exponential moving average
+  - simple moving average
+  - weighted moving average
+    - exponential moving average
 - exponential smoothing
-- single exponential smoothing -> exponential smoothing
-- double exponential smoothing -> Holt's method
-- triple exponential smoothing -> Holt-Winters method
+  - single exponential smoothing -> exponential smoothing
+    - geen trend of seasonality
+  - double exponential smoothing -> Holt's method
+    - trend
+  - triple exponential smoothing -> Holt-Winters method
+    - trend en seasonality
