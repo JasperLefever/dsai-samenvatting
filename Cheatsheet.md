@@ -71,9 +71,12 @@ Requirements z-test:
 
 indien 1 van deze niet voldaan is gebruik je de t-test en deze normaal verdeeld is
 
----
+## ![Alt text](type-i-and-type-ii-error.png)
 
 # [H4 -> 2 kwalitatieve variabelen](./Pythat0n/H4.md)
+
+H0 -> er is **geen** verband tussen de 2 variabelen
+H1 -> er is **een** verband tussen de 2 variabelen
 
 De Chi-kwadraattoets wordt gebruikt om associaties tussen categorische variabelen te beoordelen
 
@@ -106,11 +109,23 @@ Use Cohen's d as a measure of effect size to interpret the practical significanc
 
 # [H6 -> 2 kwantitatieve variabelen](./Pythat0n/H6.md)
 
+dependend variable -> y
+independend variable -> x
+
 Use regression analysis when you want to understand the relationship between a dependent variable and independent variables, and predict the value of the dependent variable.
 
 Use the correlation coefficient when you want to measure the strength and direction of the linear relationship between two variables.
 
+- r -> 0 -> geen correlatie -> alle punten liggen verspreid
+- r -> 1 -> positieve correlatie -> alle punten liggen op 1 lijn stijgend
+- r -> -1 -> negatieve correlatie -> alle punten liggen op 1 lijn dalend
+
+![Alt text](3-s2.0-B9780128013632000097-f09-09-9780128013632.jpg)
+
 Use the coefficient of determination (R-squared) to assess the model fit, compare models, and interpret the proportion of variance explained by the independent variables.
+
+- r² -> 0 -> zwakke correlatie
+- r² -> 1 -> sterke correlatie
 
 ---
 
@@ -127,3 +142,5 @@ Use the coefficient of determination (R-squared) to assess the model fit, compar
     - trend
   - triple exponential smoothing -> Holt-Winters method
     - trend en seasonality
+
+![Alt text](forecastprofile.png)
