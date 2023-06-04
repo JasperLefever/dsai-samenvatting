@@ -26,6 +26,51 @@ import altair as alt                                # Alternative visualisation 
 
 # [H3](./Pythat0n/H3.md)
 
+**Student $t$-distribution in Python**  
+Import scipy.stats  
+For a $t$-distribution with df degrees of freedom: (df = degrees of freedom)
+
+| **Function**           | **Purpose**                                                 |
+| ---------------------- | ----------------------------------------------------------- |
+| stats.t.pdf(x, df=d)   | Probability density for $x$                                 |
+| stats.t.cdf(x, df=d)   | Left-tail probability 𝑃(𝑋 < x)                              |
+| stats.t.sf(x, df=d)    | Right-tail probability 𝑃(𝑋 > x)                             |
+| stats.t.isf(1-p, df=d) | p% of observations are expected to be lower than this value |
+
+**Normal distribution in Python**
+**Python functions**
+
+Import scipy.stats  
+For a normal distribution with mean m and standard deviation s:
+
+| **Function**                        | **Purpose**                                             |
+| ----------------------------------- | ------------------------------------------------------- |
+| stats.norm.pdf(x, loc=m, scale=s)   | Probability density at $x$                              |
+| stats.norm.cdf(x, loc=m, scale=s)   | Left-tail probability 𝑃(𝑋 < x)                          |
+| stats.norm.sf(x, loc=m, scale=s)    | Right-tail probability 𝑃(𝑋 > x)                         |
+| stats.norm.isf(1-p, loc=m, scale=s) | p% of observations are expected to be lower than result |
+
+```mermaid
+graph LR
+A[Data Characteristics] -- Sample Size < 30 --> B[t-test]
+A -- Sample Size >= 30 --> C[z-test]
+A -- Sample Size Unknown --> C
+B -- Population Distribution Unknown --> C
+B -- Population Distribution Known and Normally Distributed --> C
+C -- Variances Equal and Known --> D[z-test]
+C -- Variances Unequal or Unknown --> B
+```
+
+Requirements z-test:
+
+- Random sample
+- Sample groot genoeg (n >= 30)
+  - als normaal verdeeld is is sample size niet relevant
+- normaal verdeeld
+- populatie standaard deviatie is gekend
+
+indien 1 van deze niet voldaan is gebruik je de t-test en deze normaal verdeeld is
+
 ---
 
 # [H4 -> 2 kwalitatieve variabelen](./Pythat0n/H4.md)
